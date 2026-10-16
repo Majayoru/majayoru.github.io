@@ -47,7 +47,7 @@ const projects = [
       "HTML, CSS, JavaScript로 만든 포트폴리오입니다. GitHub Actions가 티스토리 RSS를 읽어 최신 글 목록을 자동으로 갱신합니다.",
     role: ["반응형 레이아웃 및 라이트/다크 테마", "GitHub Actions 기반 블로그 글 자동 수집"],
     techStack: ["HTML", "CSS", "JavaScript", "GitHub Actions"],
-    github: "https://github.com/kangxoals-debug/jujumalon",
+    github: "https://github.com/Majayoru/majayoru.github.io",
   },
   {
     id: "edu-ai-tool",
@@ -127,7 +127,7 @@ const certs = [
 ];
 
 const contacts = [
-  { label: "github", value: "kangxoals-debug", url: "https://github.com/kangxoals-debug" },
+  { label: "github", value: "Majayoru", url: "https://github.com/Majayoru" },
   { label: "blog", value: "jujumalon.tistory.com", url: "https://jujumalon.tistory.com/" },
   // 이메일을 공개하려면 아래 줄의 // 를 지우고 주소를 넣으세요.
   // { label: "email", value: "you@example.com", url: "mailto:you@example.com" },
