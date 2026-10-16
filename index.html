@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JuJuMalon | HRD x Developer Portfolio</title>
+  <meta name="description" content="교육 운영 현장의 경험을 기술로 연결합니다. HRD Manager x Developer in Progress, JuJuMalon의 포트폴리오." />
+  <meta property="og:title" content="JuJuMalon | HRD x Developer Portfolio" />
+  <meta property="og:description" content="교육 운영 현장의 경험을 기술로 연결합니다." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    // 페이지가 그려지기 전에 테마를 적용해 깜빡임을 막습니다.
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved) document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <a href="#home" class="nav-brand">
+      <span class="nav-logo"><span class="prompt">~$</span> jujumalon</span>
+      <span class="nav-subtitle">HRD x DEV PORTFOLIO</span>
+    </a>
+
+    <div class="nav-menu">
+      <a href="#home" data-section="home">home</a>
+      <a href="#projects" data-section="projects">work</a>
+      <a href="#experiments" data-section="experiments">lab</a>
+      <a href="#notes" data-section="notes">journal</a>
+      <a href="#about" data-section="about">about</a>
+    </div>
+
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="테마 전환"></button>
+  </nav>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+
+        <div class="hero-content">
+          <span class="eyebrow">HRD · AUTOMATION · WEB</span>
+
+          <h1 class="hero-title">
+            교육 운영의 경험을,<br />
+            <span>코드로 연결합니다.</span>
+          </h1>
+
+          <p class="hero-name">
+            JuJuMalon <span>/ HRD Manager x Developer in Progress</span>
+          </p>
+
+          <p class="hero-typing">
+            <span class="prompt">&gt;</span> <span id="typing"></span><span class="cursor">_</span>
+          </p>
+
+          <p class="hero-description">
+            국비지원 훈련기관에서 학원 운영, 총무, HRD 행정을 맡아 왔고
+            지금은 고용노동부 위탁 직업훈련과 KDT·AI 캠퍼스 과정을 운영합니다.
+            현장에서 반복되는 일을 Python과 웹으로 자동화하는 방법을 공부하고 있습니다.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">./explore-work <span aria-hidden="true">↗</span></a>
+            <a href="#about" class="btn-secondary">cat about.md</a>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 터미널 창 -->
+        <div class="hero-visual">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="terminal-title">whoami.yaml</span>
+            </div>
+<pre class="terminal-body"><span class="k">nickname</span>  : JuJuMalon
+<span class="k">role</span>      : HRD Manager x Developer
+<span class="k">base</span>      : Daejeon, South Korea
+<span class="k">mission</span>   : 교육 운영 현장의 경험을
+            기술로 연결합니다
+<span class="k">focus</span>     :
+  - 국비훈련 운영
+  - KDT / AI 과정
+  - 업무 자동화
+  - 웹 개발
+<span class="k">status</span>    : <span class="ok">● online</span></pre>
+          </div>
+          <span class="hero-visual-caption">PORTFOLIO / 2026</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>WORK · LAB · JOURNAL · ABOUT</span>
+        <a href="#projects">scroll to explore <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+
+    <!-- ===================== PROJECTS (Work) ===================== -->
+    <section id="projects" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">SELECTED WORK</span>
+        <h2><span class="prompt">&gt;</span> projects.list</h2>
+        <p>직접 만들고 있는 프로젝트와 구현 기록입니다.</p>
+      </div>
+      <div class="project-list" id="projectList"></div>
+    </section>
+
+
+    <!-- ===================== EXPERIMENTS (Lab) ===================== -->
+    <section id="experiments" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">LEARNING &amp; EXPERIMENTS</span>
+        <h2><span class="prompt">&gt;</span> lab.experiments</h2>
+        <p>공부하면서 직접 돌려 본 실습과 실험을 기록합니다.</p>
+      </div>
+      <div class="experiment-list" id="experimentList"></div>
+    </section>
+
+
+    <!-- ===================== LATEST NOTES (Journal) ===================== -->
+    <section id="notes" class="section">
+      <div class="notes-heading">
+        <div class="section-heading">
+          <span class="eyebrow">FROM MY JOURNAL</span>
+          <h2><span class="prompt">&gt;</span> latest.notes</h2>
+          <p>배우고 실험하며 기록한 개발 노트입니다. 티스토리 새 글이 자동으로 반영됩니다.</p>
+        </div>
+        <a href="https://jujumalon.tistory.com/" target="_blank" rel="noopener noreferrer" class="notes-all-link">all posts ↗</a>
+      </div>
+      <div class="notes-list" id="notesList">
+        <p class="notes-status">$ fetching posts...</p>
+      </div>
+    </section>
+
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">ABOUT ME</span>
+        <h2><span class="prompt">&gt;</span> career.log</h2>
+        <p class="about-lead">
+          국비지원 교육기관에서 운영·총무·HRD 행정을 두루 맡으며
+          교육 현장이 어떻게 돌아가는지 몸으로 익혔습니다.
+          반복되는 행정 업무를 줄이고 훈련생 관리를 더 잘하기 위해
+          Python과 웹 개발을 공부하고 있습니다.
+        </p>
+      </div>
+
+      <div class="about-summary" id="aboutSummary"></div>
+
+      <div class="about-block">
+        <div class="about-block-heading"><span>01</span><h3>Career</h3></div>
+        <div class="timeline" id="careerList"></div>
+      </div>
+
+      <div class="about-block">
+        <div class="about-block-heading"><span>02</span><h3>Tech Stack</h3></div>
+        <div class="stack-grid" id="stackList"></div>
+      </div>
+
+      <div class="about-block">
+        <div class="about-block-heading"><span>03</span><h3>Certifications</h3></div>
+        <div class="cert-grid" id="certList"></div>
+      </div>
+    </section>
+
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section contact">
+      <div class="terminal contact-terminal">
+        <div class="terminal-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="terminal-title">contact.sh</span>
+        </div>
+        <div class="terminal-body">
+          <p><span class="prompt">$</span> echo "함께 이야기 나눠요"</p>
+          <h2>Let's connect.</h2>
+          <p class="contact-desc">HRD 운영, 교육 자동화, 웹 개발에 관한 이야기라면 언제든 환영합니다.</p>
+          <div class="contact-links" id="contactLinks"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p>&gt; session closed. thanks for visiting. // JuJuMalon</p>
+    <p class="footer-sub">© <span id="year"></span> JuJuMalon · built with HTML / CSS / JavaScript</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
