@@ -2,7 +2,7 @@
 // 외부 패키지 없이 Node.js(18 이상)만으로 동작합니다.
 import { writeFile } from "node:fs/promises";
 
-const RSS_URL = "https://jujumalon.tistory.com/rss";
+const RSS_URL = "https://majayoru.tistory.com/rss";
 const LIMIT = 5;
 
 const res = await fetch(RSS_URL);
