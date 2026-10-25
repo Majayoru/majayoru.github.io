@@ -3,7 +3,8 @@ const $ = (sel) => document.querySelector(sel);
 const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const tags = (list) => list.map((t) => `<span class="tag">${esc(t)}</span>`).join("");
-const statusBadge = (s) => (s ? `<span class="status status-${esc(s).toLowerCase()}">[${esc(s)}]</span>` : "");
+const statusBadge = (s) => (s ? `<span class="status status-${esc(s).toLowerCase()}">${esc(s.charAt(0) + s.slice(1).toLowerCase())}</span>` : "");
+const catClass = (c) => (/english|영어/i.test(c || "") ? "c-en" : /word|어휘/i.test(c || "") ? "c-word" : "c-dev");
 
 /* ---------- 테마 토글 ---------- */
 const MOON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.1A8.5 8.5 0 0 1 10.9 3.5 8.5 8.5 0 1 0 20.5 13.1Z"/></svg>';
@@ -16,7 +17,7 @@ function applyTheme(theme) {
   btn.setAttribute("aria-label", theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환");
   try { localStorage.setItem("theme", theme); } catch (e) {}
 }
-applyTheme(document.documentElement.dataset.theme || "dark");
+applyTheme(document.documentElement.dataset.theme || "light");
 $("#themeToggle").addEventListener("click", () =>
   applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark")
 );
@@ -56,8 +57,8 @@ updateActive();
 /* ---------- Projects ---------- */
 function projectCard(p) {
   const link = p.github
-    ? `<a href="${esc(p.github)}" target="_blank" rel="noopener noreferrer" class="card-link">view on github ↗</a>`
-    : `<span class="card-link muted">// coming soon</span>`;
+    ? `<a href="${esc(p.github)}" target="_blank" rel="noopener noreferrer" class="card-link">View on GitHub ↗</a>`
+    : `<span class="card-link muted">Coming soon</span>`;
   const role = p.role && p.role.length
     ? `<ul class="role-list">${p.role.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>` : "";
   return `
@@ -89,7 +90,7 @@ $("#experimentList").innerHTML = experiments.map((e) => `
     <h3>${esc(e.title)}</h3>
     <p class="card-subtitle">${esc(e.subtitle)}</p>
     <p class="card-desc">${esc(e.description)}</p>
-    <pre class="methods">${e.methods.map((m) => `<span class="prompt">$</span> ${esc(m)}`).join("\n")}</pre>
+    <pre class="methods">${e.methods.map((m) => `<span class="prompt">→</span> ${esc(m)}`).join("\n")}</pre>
     <div class="tags">${tags(e.techStack)}</div>
   </article>`).join("");
 
@@ -101,11 +102,11 @@ $("#experimentList").innerHTML = experiments.map((e) => `
     if (!res.ok) throw new Error(res.status);
     const posts = await res.json();
     if (!posts.length) {
-      box.innerHTML = `<p class="notes-status">$ ls ./posts<br>// 아직 작성된 글이 없습니다. 곧 첫 기록이 올라옵니다.</p>`;
+      box.innerHTML = `<p class="notes-status">아직 불러온 글이 없습니다. 곧 첫 기록이 올라옵니다.</p>`;
       return;
     }
     box.innerHTML = posts.map((p, i) => `
-      <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="note-item">
+      <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="note-item ${catClass(p.category)}">
         <span class="note-number">${String(i + 1).padStart(2, "0")}</span>
         <div class="note-content">
           ${p.category ? `<span class="card-category">${esc(p.category)}</span>` : ""}
@@ -116,7 +117,7 @@ $("#experimentList").innerHTML = experiments.map((e) => `
       </a>`).join("");
   } catch (err) {
     console.error("Latest Notes 오류:", err);
-    box.innerHTML = `<p class="notes-status error">[ERR] 게시글을 불러오지 못했습니다.</p>`;
+    box.innerHTML = `<p class="notes-status error">게시글을 불러오지 못했습니다.</p>`;
   }
 })();
 
@@ -128,7 +129,7 @@ $("#aboutSummary").innerHTML = summary.map((s) => `
 
 $("#careerList").innerHTML = careers.map((c) => `
   <div class="timeline-item">
-    <span class="timeline-tag ${c.tag === "NOW" ? "now" : ""}">[${esc(c.tag)}]</span>
+    <span class="timeline-tag ${c.tag === "NOW" ? "now" : ""}">${esc(c.tag)}</span>
     <div>
       <h4>${esc(c.title)}</h4>
       <ul>${c.tasks.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
@@ -136,7 +137,7 @@ $("#careerList").innerHTML = careers.map((c) => `
   </div>`).join("");
 
 $("#stackList").innerHTML = stack.map((s) => `<span class="stack-item">${esc(s)}</span>`).join("");
-$("#certList").innerHTML = certs.map((c) => `<span class="cert-item"><span class="ok">[OK]</span> ${esc(c)}</span>`).join("");
+$("#certList").innerHTML = certs.map((c) => `<span class="cert-item"><span class="ok">✓</span> ${esc(c)}</span>`).join("");
 
 /* ---------- Contact / Footer ---------- */
 $("#contactLinks").innerHTML = contacts.map((c) => `
@@ -144,3 +145,8 @@ $("#contactLinks").innerHTML = contacts.map((c) => `
     <span class="contact-label">${esc(c.label)}</span><span>${esc(c.value)}</span><span aria-hidden="true">↗</span>
   </a>`).join("");
 $("#year").textContent = new Date().getFullYear();
+(function () {
+  const d = new Date(), w = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const el = $("#today");
+  if (el) el.textContent = `${d.getMonth() + 1}.${String(d.getDate()).padStart(2, "0")} ${w[d.getDay()]}`;
+})();

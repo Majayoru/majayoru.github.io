@@ -8,12 +8,12 @@
    ========================================================= */
 
 const SITE = {
-  blogUrl: "https://jujumalon.tistory.com/",
+  blogUrl: "https://majayoru.tistory.com/",
   typingLines: [
-    "Initializing system...",
-    "Education meets Technology",
-    "Building the future of learning",
-    "Status: Learning | Coding | Growing",
+    "Automating HRD tasks",
+    "Learning web development",
+    "Writing daily notes",
+    "Growing step by step",
   ],
 };
 
@@ -128,7 +128,7 @@ const certs = [
 
 const contacts = [
   { label: "github", value: "Majayoru", url: "https://github.com/Majayoru" },
-  { label: "blog", value: "jujumalon.tistory.com", url: "https://jujumalon.tistory.com/" },
+  { label: "blog", value: "majayoru.tistory.com", url: "https://majayoru.tistory.com/" },
   // 이메일을 공개하려면 아래 줄의 // 를 지우고 주소를 넣으세요.
   // { label: "email", value: "you@example.com", url: "mailto:you@example.com" },
 ];
