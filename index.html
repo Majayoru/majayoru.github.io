@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <script>
     // 페이지가 그려지기 전에 테마를 적용해 깜빡임을 막습니다.
@@ -24,17 +24,14 @@
 
   <!-- ===================== NAVBAR ===================== -->
   <nav class="navbar">
-    <a href="#home" class="nav-brand">
-      <span class="nav-logo"><span class="prompt">~$</span> majayoru</span>
-      <span class="nav-subtitle">HRD x DEV PORTFOLIO</span>
-    </a>
+    <a href="#home" class="nav-brand">Majayoru<span>.</span></a>
 
     <div class="nav-menu">
-      <a href="#home" data-section="home">home</a>
-      <a href="#projects" data-section="projects">work</a>
-      <a href="#experiments" data-section="experiments">lab</a>
-      <a href="#notes" data-section="notes">journal</a>
-      <a href="#about" data-section="about">about</a>
+      <a href="#home" data-section="home">Home</a>
+      <a href="#projects" data-section="projects">Work</a>
+      <a href="#experiments" data-section="experiments">Lab</a>
+      <a href="#notes" data-section="notes">Notes</a>
+      <a href="#about" data-section="about">About</a>
     </div>
 
     <button type="button" class="theme-toggle" id="themeToggle" aria-label="테마 전환"></button>
@@ -44,23 +41,16 @@
 
     <!-- ===================== HERO ===================== -->
     <section id="home" class="hero">
-      <div class="hero-container">
+      <div class="hero-bg" aria-hidden="true"><span class="glow g1"></span><span class="glow g2"></span><span class="glow g3"></span></div>
 
+      <div class="hero-container">
         <div class="hero-content">
-          <span class="eyebrow">HRD · AUTOMATION · WEB</span>
+          <p class="eyebrow-pill"><i class="d-dev"></i><i class="d-en"></i><i class="d-word"></i>HRD&nbsp;&nbsp;·&nbsp;&nbsp;AUTOMATION&nbsp;&nbsp;·&nbsp;&nbsp;WEB</p>
 
           <h1 class="hero-title">
-            교육 운영의 경험을,<br />
-            <span>코드로 연결합니다.</span>
+            From HRD work<br />
+            to <span class="grad">working code.</span>
           </h1>
-
-          <p class="hero-name">
-            Majayoru <span>/ HRD Manager x Developer in Progress</span>
-          </p>
-
-          <p class="hero-typing">
-            <span class="prompt">&gt;</span> <span id="typing"></span><span class="cursor">_</span>
-          </p>
 
           <p class="hero-description">
             국비지원 훈련기관에서 학원 운영, 총무, HRD 행정을 맡아 왔고
@@ -68,38 +58,49 @@
             현장에서 반복되는 일을 Python과 웹으로 자동화하는 방법을 공부하고 있습니다.
           </p>
 
+          <p class="hero-typing">Now <span class="arrow">→</span> <span id="typing"></span><span class="cursor"></span></p>
+
           <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">./explore-work <span aria-hidden="true">↗</span></a>
-            <a href="#about" class="btn-secondary">cat about.md</a>
+            <a href="#projects" class="btn-primary">View Work <span aria-hidden="true">→</span></a>
+            <a href="#about" class="btn-secondary">About Me</a>
           </div>
         </div>
 
-        <!-- 오른쪽: 터미널 창 -->
-        <div class="hero-visual">
-          <div class="terminal">
-            <div class="terminal-bar">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="terminal-title">whoami.yaml</span>
-            </div>
-<pre class="terminal-body"><span class="k">nickname</span>  : Majayoru
-<span class="k">role</span>      : HRD Manager x Developer
-<span class="k">base</span>      : Daejeon, South Korea
-<span class="k">mission</span>   : 교육 운영 현장의 경험을
-            기술로 연결합니다
-<span class="k">focus</span>     :
-  - 국비훈련 운영
-  - KDT / AI 과정
-  - 업무 자동화
-  - 웹 개발
-<span class="k">status</span>    : <span class="ok">● online</span></pre>
+        <!-- 오른쪽: 프로필 카드 -->
+        <div class="profile-card">
+          <div class="profile-head"><span>Profile</span><span class="profile-date" id="today"></span></div>
+          <div class="profile-name">
+            <strong>Majayoru</strong>
+            <span>HRD Manager x Developer in Progress</span>
           </div>
-          <span class="hero-visual-caption">PORTFOLIO / 2026</span>
+          <dl class="profile-list">
+            <div><dt>Base</dt><dd>Daejeon, South Korea</dd></div>
+            <div><dt>Mission</dt><dd>Connecting education work with technology</dd></div>
+            <div><dt>Focus</dt><dd class="chips"><span class="c-dev">HRD Ops</span><span class="c-en">KDT / AI</span><span class="c-word">Automation</span><span class="c-dev">Web</span></dd></div>
+            <div><dt>Status</dt><dd><span class="live"></span>Learning every day</dd></div>
+          </dl>
         </div>
       </div>
 
-      <div class="hero-bottom">
-        <span>WORK · LAB · JOURNAL · ABOUT</span>
-        <a href="#projects">scroll to explore <span aria-hidden="true">↓</span></a>
+      <div class="hero-cards">
+        <a href="#projects" class="hero-card t-dev">
+          <span class="hero-card-label">Work</span>
+          <strong>Projects</strong>
+          <p>Automation · Web · AI tools</p>
+          <span class="hero-card-go">View →</span>
+        </a>
+        <a href="#experiments" class="hero-card t-en">
+          <span class="hero-card-label">Lab</span>
+          <strong>Experiments</strong>
+          <p>Practice · Habits · Basics</p>
+          <span class="hero-card-go">View →</span>
+        </a>
+        <a href="#notes" class="hero-card t-word">
+          <span class="hero-card-label">Notes</span>
+          <strong>Latest Notes</strong>
+          <p>Dev Log · English · Words</p>
+          <span class="hero-card-go">View →</span>
+        </a>
       </div>
     </section>
 
@@ -107,8 +108,8 @@
     <!-- ===================== PROJECTS (Work) ===================== -->
     <section id="projects" class="section">
       <div class="section-heading">
-        <span class="eyebrow">SELECTED WORK</span>
-        <h2><span class="prompt">&gt;</span> projects.list</h2>
+        <span class="eyebrow c-dev">SELECTED WORK</span>
+        <h2>Projects</h2>
         <p>직접 만들고 있는 프로젝트와 구현 기록입니다.</p>
       </div>
       <div class="project-list" id="projectList"></div>
@@ -118,26 +119,26 @@
     <!-- ===================== EXPERIMENTS (Lab) ===================== -->
     <section id="experiments" class="section">
       <div class="section-heading">
-        <span class="eyebrow">LEARNING &amp; EXPERIMENTS</span>
-        <h2><span class="prompt">&gt;</span> lab.experiments</h2>
+        <span class="eyebrow c-en">LEARNING &amp; EXPERIMENTS</span>
+        <h2>Lab</h2>
         <p>공부하면서 직접 돌려 본 실습과 실험을 기록합니다.</p>
       </div>
       <div class="experiment-list" id="experimentList"></div>
     </section>
 
 
-    <!-- ===================== LATEST NOTES (Journal) ===================== -->
+    <!-- ===================== LATEST NOTES ===================== -->
     <section id="notes" class="section">
       <div class="notes-heading">
         <div class="section-heading">
-          <span class="eyebrow">FROM MY JOURNAL</span>
-          <h2><span class="prompt">&gt;</span> latest.notes</h2>
-          <p>배우고 실험하며 기록한 개발 노트입니다. 티스토리 새 글이 자동으로 반영됩니다.</p>
+          <span class="eyebrow c-word">FROM MY BLOG</span>
+          <h2>Latest Notes</h2>
+          <p>개발, 영어, 어휘를 공부하며 남긴 기록입니다. 블로그 새 글이 자동으로 반영됩니다.</p>
         </div>
-        <a href="https://jujumalon.tistory.com/" target="_blank" rel="noopener noreferrer" class="notes-all-link">all posts ↗</a>
+        <a href="https://majayoru.tistory.com/" target="_blank" rel="noopener noreferrer" class="notes-all-link">All Posts ↗</a>
       </div>
       <div class="notes-list" id="notesList">
-        <p class="notes-status">$ fetching posts...</p>
+        <p class="notes-status">Loading posts...</p>
       </div>
     </section>
 
@@ -145,8 +146,8 @@
     <!-- ===================== ABOUT ===================== -->
     <section id="about" class="section">
       <div class="section-heading">
-        <span class="eyebrow">ABOUT ME</span>
-        <h2><span class="prompt">&gt;</span> career.log</h2>
+        <span class="eyebrow c-dev">ABOUT ME</span>
+        <h2>About</h2>
         <p class="about-lead">
           국비지원 교육기관에서 운영·총무·HRD 행정을 두루 맡으며
           교육 현장이 어떻게 돌아가는지 몸으로 익혔습니다.
@@ -176,17 +177,11 @@
 
     <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="section contact">
-      <div class="terminal contact-terminal">
-        <div class="terminal-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="terminal-title">contact.sh</span>
-        </div>
-        <div class="terminal-body">
-          <p><span class="prompt">$</span> echo "함께 이야기 나눠요"</p>
-          <h2>Let's connect.</h2>
-          <p class="contact-desc">HRD 운영, 교육 자동화, 웹 개발에 관한 이야기라면 언제든 환영합니다.</p>
-          <div class="contact-links" id="contactLinks"></div>
-        </div>
+      <div class="contact-card">
+        <span class="eyebrow c-en">CONTACT</span>
+        <h2>Let's connect.</h2>
+        <p class="contact-desc">HRD 운영, 교육 자동화, 웹 개발에 관한 이야기라면 언제든 환영합니다.</p>
+        <div class="contact-links" id="contactLinks"></div>
       </div>
     </section>
 
@@ -194,8 +189,11 @@
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <p>&gt; session closed. thanks for visiting. // Majayoru</p>
-    <p class="footer-sub">© <span id="year"></span> Majayoru · built with HTML / CSS / JavaScript</p>
+    <div class="footer-inner">
+      <div class="footer-col"><span class="footer-label">ABOUT</span><p>HRD Manager x Developer in Progress</p></div>
+      <div class="footer-col"><span class="footer-label">LINK</span><p><a href="https://github.com/Majayoru" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://majayoru.tistory.com/" target="_blank" rel="noopener noreferrer">Blog ↗</a></p></div>
+    </div>
+    <p class="footer-sub">© <span id="year"></span> Majayoru · Built with HTML / CSS / JavaScript</p>
   </footer>
 
   <script src="js/data.js"></script>
