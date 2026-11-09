@@ -1,5 +1,12 @@
 [
   {
+    "id": "https://majayoru.tistory.com/14",
+    "title": "[001] 첫 번째 개발 공부",
+    "category": "Dev Log",
+    "url": "https://majayoru.tistory.com/14",
+    "date": "2026-11-09"
+  },
+  {
     "id": "https://majayoru.tistory.com/13",
     "title": "[002] I don't like football",
     "category": "Daily One Line",
@@ -25,13 +32,6 @@
     "title": "[002] 영어 공부 문법",
     "category": "English Study",
     "url": "https://majayoru.tistory.com/4",
-    "date": "2026-10-26"
-  },
-  {
-    "id": "https://majayoru.tistory.com/3",
-    "title": "[002] 덕분에 오늘 하루가 한결 가벼워졌어요",
-    "category": "Word Note",
-    "url": "https://majayoru.tistory.com/3",
     "date": "2026-10-26"
   }
 ]
